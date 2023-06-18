@@ -1,0 +1,41 @@
+task1  :-   #setup ec2 autoscaling to automatically adjust no. of instances based of cpu utilization,
+            #configure alarm to trigger scaling action in real time if cpu threshold exceed,
+            #monitor auto scaling events and instance in real-time to ensure optimal resources utilization and app.perfo
+
+1=  go to ec2 
+2= select autoscaling group
+3= name:- asg-grp
+4= select launch configuration 
+5= name:- LC1
+6= copy ami id and paste in search bar also select that ami
+7= instance type :- t2.micro
+8= security grp:- creat new grp and give name: asg-grp
+9= select keypair
+10= select create launch configuration
+11= now select LC1 in launch config.page
+12= next 
+13= availability zones :-- select all
+14= next 
+15= next 
+16= group size: desired capacity 3, min 2, max 5
+17= next:next:next
+ 
+18= click create autoscaling group 
+19= now, select automatic scale grp = automatic scaling
+20= click create dynamic scaling policy
+21= policy name: simple scaling = name: increase-grp = take action: add = 2 = 300 = create
+repeate the process for decrease grp = take action: remove = 1 = 300 = create
+
+22= cloud watch = in alarm = select metric = EC2 = select autoscaling group = type group name in search bar = select cpu utilization = select metric = 
+23= condition: lower/equal = 20 next = autoscaling action = select autoscaling grp = take action : select decrease = next = name: final-alarm = next = create.
+
+24= now, take ssh of instance 
+25= go to mobaxterm
+26= type sudo yum install stress -y 
+27= type sudo stress --help
+28= copy example line and paste below then edit [stress --cpu 80 --io 4 --vm 2 --vm-bytes 128M --timeout 10m &]
+29= type uptime untill it hits the cpu utilization to 80 
+30= goto instance and you will see as the cpu utilization incress the instances are scaled up.
+
+
+

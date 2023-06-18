@@ -1,0 +1,26 @@
+task: Create bucket, add 2 users give 1 user permission of read, write and user 2 permission read only]
+
+steps:
+1. goto s3
+2. click create bucket
+3. name: sample-bucket-abc
+4. now, goto policies in IAM service 
+5. click create policy for (policy1) 
+6. click creat policy > select s3 > access level: give read and write permission > in resources: click add Arn > paste bucket name over here >  add a
+8. give policy name:s3-read-write-permission > click create policy
+
+create policy for read only permission[policy2]
+
+9. click create policy >  select s3 > resources: click add arn: paste bucket name > click add arn
+10. next 
+11. policy name: s3-readonly-permission > click create policy
+
+12. now, select users > click add users > demouser1 > next > select attach policy directly > click all types > select customer managed > select read write policy 
+13. next 
+14. click create user
+15. download .csv file
+
+repeat same process in attach policy directly select readonly policy 
+
+16. next 
+17. create user

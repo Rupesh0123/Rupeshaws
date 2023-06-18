@@ -1,0 +1,16 @@
+task: create user and give passwod
+
+ 
+1= goto IAM
+2= select users
+3= (click) add users
+4= username: user1
+5= select provide user access to aws console
+6= then select i want to create an iam user
+7= select custome password
+8= uncheck user must create new pass. next signin
+9= next 
+10 attach policy: s3 full access
+11= create user
+12= next 
+13= download .csv file
